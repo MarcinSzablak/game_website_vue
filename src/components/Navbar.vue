@@ -12,8 +12,8 @@ export default {
 
 <template>
     <nav class="navbar">
-        <a class="navbarTitle text" href="#">GameWebsite</a>
-        <ul class="listContainer">
+        <a class="navbar-title text" href="#">GameWebsite</a>
+        <ul class="list-container">
             <NavBarLink
                 :links="links"
             ></NavBarLink>
@@ -23,6 +23,7 @@ export default {
 
 <style scoped>
 .navbar {
+    position: fixed;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -35,14 +36,13 @@ export default {
     padding-right: 10px;
 }
 
-.listContainer {
+.list-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 15px;
 }
-.navbarTitle{
-    font-family: 'Tektur', sans-serif;
+.navbar-title{
     font-weight: 600;
     font-size: large;
 }

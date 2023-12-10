@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@900&display=swap');
 
 :root {
-    --new-green: #45ffca;
-    --new-yellow: #F8FF95;
-    --new-pink: #FFA1F5;
-    --new-purple: #BC7AF9;
+    --new-pink: #E966A0;
+    --new-purple: #9575DE;
+    --new-dark-purple: #6554af;
+    --new-black: #2b2730;
+    --new-white: #FEF6FF;
+    --new-gray: #AEA9B5;
 }
+
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ }
 
 *{
     margin: 0;
@@ -16,10 +27,11 @@
 
 body{
     min-height: 100vh;
+    background-color: var(--new-white);
 }
 
 .text{
+    font-family: 'Tektur', sans-serif;
     text-decoration: none;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    color: var(--new-black);
 }

@@ -23,6 +23,7 @@ export default {
 
 <style scoped>
 .navbar {
+    z-index:1;
     position: fixed;
     display: flex;
     flex-direction: row;

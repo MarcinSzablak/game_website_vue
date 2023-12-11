@@ -1,4 +1,12 @@
 <script lang="ts">
+
+interface Stats {
+    X_Wins: number,
+    O_Wins: number,
+    ai_Wins: number,
+    draw: number
+}
+
 export default{
     data(){
         return{
@@ -10,6 +18,12 @@ export default{
             playerOrder: "X" as string,
             gameOver: false as boolean,
             clicks: 0 as number,
+            stats: {
+                X_Wins: 0,
+                O_Wins: 0,
+                ai_Wins: 0,
+                draw: 0,
+            } as Stats,
         }
     },
     methods:{
@@ -19,13 +33,24 @@ export default{
                 this.clicks += 1
                 if (this.checkWinCondition()){
                     this.gameOver = true
-                    this.playerOrderChange()
+                    switch (this.playerOrder) {
+                        case "X":
+                            this.stats.X_Wins += 1
+                            break;
+
+                        default:
+                            this.stats.O_Wins += 1
+                            break;
+                    }
+                    return;
+
                 }
                 this.playerOrderChange()
             }
             if (this.clicks >= 9){
                 this.gameOver = true
                 this.playerOrder = "none"
+                this.stats.draw += 1
             }
             return
         },
@@ -71,6 +96,7 @@ export default{
 
 <template>
     <div class="main-container unselectable">
+        <p class="actual-player">{{gameOver && playerOrder === 'none' ? 'Draw' : playerOrder}}</p>
         <table class="board">
             <tr
                 class="row"
@@ -90,12 +116,22 @@ export default{
                 >{{board[rowIndex][colIndex]}}</button>
             </tr>
         </table>
+        <div class="stats-box">
+                <p
+                    v-for="(stat, statIndex) in stats"
+                    class="text stats"
+                    :class="{
+                        'x-theme': statIndex.toString() === 'X_Wins',
+                        'o-theme': statIndex.toString() === 'O_Wins'
+                    }"
+                >{{statIndex.toString().replace("_"," ")}}: {{stat}}</p>
+            </div>
         <div
             :style=" !gameOver ? {display: 'none'}: {display: 'flex'}"
             class="modal"
         >
             <div class="boxModal">
-                <p class="text modalText">Player {{playerOrder}} wins!</p>
+                <p class="text modalText">{{gameOver && playerOrder !== 'none' ? playerOrder + ' player wins!' : 'Draw'}} </p>
                 <button
                     class="text"
                     v-on:click.prevent="resetGame"
@@ -108,9 +144,11 @@ export default{
 <style scoped>
 .main-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Urbanist', sans-serif;
 }
 .modal{
     position: absolute;
@@ -123,7 +161,7 @@ export default{
 .boxModal{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 300px;
     height: 300px;
@@ -131,11 +169,17 @@ export default{
 }
 .modalText{
     color: var(--new-white);
+    font-family: 'Urbanist', sans-serif;
     font-size: 30px;
 }
 
 button{
     padding: 10px;
+    font-family: 'Urbanist', sans-serif;
+}
+.actual-player{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
 }
 .row{
     display: flex;
@@ -152,6 +196,7 @@ table, tr, td{
     height: 100px;
     margin: 5px;
     font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
     font-size: 100px;
 }
 .x-theme{
@@ -159,5 +204,19 @@ table, tr, td{
 }
 .o-theme{
     background-color: var(--new-blue);
+}
+
+.stats-box{
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.stats{
+    padding: 4px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
 }
 </style>

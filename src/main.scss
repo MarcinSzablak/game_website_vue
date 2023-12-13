@@ -7,8 +7,9 @@
     --new-purple: #9575DE;
     --new-dark-purple: #6554af;
     --new-black: #2b2730;
-    --new-white: #FEF6FF;
+    --new-white: #fef6ff;
     --new-gray: #AEA9B5;
+    --new-dark-gray: #323232;
 }
 
 .unselectable {
@@ -34,5 +35,20 @@ body{
 .text{
     font-family: 'Tektur', sans-serif;
     text-decoration: none;
+    color: var(--new-black);
+}
+
+button{
+    padding: 10px;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.dark{
+    background-color: var(--new-dark-purple);
+    color: var(--new-white);
+}
+
+.light{
+    background-color: var(--new-purple);
     color: var(--new-black);
 }

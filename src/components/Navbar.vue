@@ -3,7 +3,7 @@ import '../main.scss';
 import NavBarLink from './NavbarLink.vue';
 
 export default {
-    props:['links'],
+    props:['links', 'theme', 'changeTheme'],
     components: {
         NavBarLink
     },
@@ -11,17 +11,22 @@ export default {
 </script>
 
 <template>
-    <nav class="navbar">
-        <a class="navbar-title text" href="#">GameWebsite</a>
+    <nav class="navbar unselectable" :class="theme ? 'dark': 'light'">
+        <a class="navbar-title text" :class="theme ? 'dark': 'light'" href="#">GameWebsite</a>
         <ul class="list-container">
             <NavBarLink
+                :theme="theme"
                 :links="links"
             ></NavBarLink>
         </ul>
+        <button
+            v-on:click="changeTheme"
+        >asds</button>
     </nav>
 </template>
 
 <style scoped>
+
 .navbar {
     z-index:1;
     position: fixed;
@@ -32,7 +37,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     min-width: 100%;
-    background-color: var(--new-purple);
+
     padding-left: 10px;
     padding-right: 10px;
 }

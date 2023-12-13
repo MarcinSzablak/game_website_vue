@@ -15,7 +15,8 @@ export default{
   },
   data() {
     return {
-        links: []
+        links: [] as Array<any>,
+        theme: false as boolean
     }
   },
   methods: {
@@ -25,6 +26,9 @@ export default{
 
         this.links = data;
     },
+    changeTheme(){
+      this.theme = !this.theme
+    },
   },
 }
 </script>
@@ -33,11 +37,17 @@ export default{
 
   <navbar
     :links="links"
+    :theme="theme"
+    :changeTheme="changeTheme"
   ></navbar>
 
-  <tic-tac-toe></tic-tac-toe>
+  <tic-tac-toe
+    :theme="theme"
+  ></tic-tac-toe>
 
-  <new-footer></new-footer>
+  <new-footer
+    :theme="theme"
+  ></new-footer>
 
 </template>
 

@@ -1,13 +1,18 @@
 <script lang="ts">
+import '../main.scss'
 export default{
-
+    props:['theme']
 }
 </script>
 
 <template>
-    <div class="container text">
+    <div
+        class="container text unselectable"
+        :class="theme ? 'dark': 'light'"
+    >
         <a
             class="text"
+            :class="theme ? 'dark': 'light'"
             href="https://github.com/MarcinSzablak"
         >made by Jerz</a>
     </div>
@@ -20,8 +25,7 @@ export default{
     bottom: 0;
     padding: 20px;
     width: 100%;
-    background-color: var(--new-purple);
-    color: var(--new-black);
+
     text-align: center;
 }
 </style>

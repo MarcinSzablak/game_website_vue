@@ -1,12 +1,17 @@
 <script lang="ts">
-
+import '../main.scss'
+import Modal from './Modal.vue'
 interface Stats {
-    X_Wins: number,
-    O_Wins: number,
+    x_Wins: number,
+    o_Wins: number,
     draw: number
 }
 
 export default {
+    props:['theme'],
+    components:{
+        Modal
+    },
     data() {
         return {
             board: [
@@ -18,8 +23,8 @@ export default {
             gameOver: false as boolean,
             clicks: 0 as number,
             stats: {
-                X_Wins: 0,
-                O_Wins: 0,
+                x_Wins: 0,
+                o_Wins: 0,
                 draw: 0,
             } as Stats,
             aiPlay: false as boolean,
@@ -34,10 +39,10 @@ export default {
                     this.gameOver = true
                     switch (this.playerOrder) {
                         case "X":
-                            this.stats.X_Wins += 1
+                            this.stats.x_Wins += 1
                             break;
                         default:
-                            this.stats.O_Wins += 1
+                            this.stats.o_Wins += 1
                             break;
                     }
                     this.playerOrderChange()
@@ -112,10 +117,10 @@ export default {
                             this.gameOver = true;
                             switch (this.playerOrder) {
                                 case "X":
-                                    this.stats.X_Wins += 1;
+                                    this.stats.x_Wins += 1;
                                     break;
                                 default:
-                                    this.stats.O_Wins += 1;
+                                    this.stats.o_Wins += 1;
                                     break;
                             }
                             return;
@@ -141,18 +146,21 @@ export default {
                 ["", "", ""]
             ]
             this.clicks = 0
-            this.stats.X_Wins = 0
-            this.stats.O_Wins = 0
+            this.stats.x_Wins = 0
+            this.stats.o_Wins = 0
             this.stats.draw = 0
+            this.playerOrder = "X"
         },
     }
 }
 </script>
 
 <template>
-    <div class="main-container unselectable">
+    <div
+        class="main-container unselectable"
+        :class="theme ? 'darkMain' : 'lightMain'">
 
-        <p class="actual-player">{{gameOver && playerOrder === 'none' ? 'Draw' : playerOrder}}</p>
+        <p class="actual-player" :class="theme ? 'darkMain' : 'lightMain'">{{gameOver && playerOrder === 'none' ? 'Draw' : playerOrder}}</p>
 
         <table class="board">
             <tr
@@ -163,9 +171,11 @@ export default {
                 <button
                     class="column"
                     :class="{
-
+                        'clicked': board[rowIndex][colIndex] ,
                         'x-theme': board[rowIndex][colIndex] === 'X',
                         'o-theme': board[rowIndex][colIndex] === 'O',
+                        'darkMain': theme ,
+                        'lightMain': !theme,
                     }"
                     v-for="(col, colIndex) in row"
                     :key="colIndex"
@@ -180,43 +190,43 @@ export default {
                 v-for="(stat, statIndex) in stats"
                 class="text stats"
                 :class="{
-                    'x-theme': statIndex.toString() === 'X_Wins',
-                    'o-theme': statIndex.toString() === 'O_Wins',
+                    'x-theme': statIndex.toString() === 'x_Wins',
+                    'o-theme': statIndex.toString() === 'o_Wins',
+                    'darkMain': theme ,
+                    'lightMain': !theme,
                 }"
             >{{statIndex.toString().replace("_"," ")}}: {{stat}}</p>
         </div>
 
         <button
-            class="text ai-button"
-            :class="aiPlay ? 'dark': 'light'"
+            class="ai-button"
+            :class="aiPlay ? 'darkButton': 'lightButton'"
             v-on:click.prevent="changeToAi"
         >aiPlay</button>
-
-        <div
-            :style=" !gameOver ? {display: 'none'}: {display: 'flex'}"
-            class="modal"
-        >
-            <div class="boxModal">
-                <p
-                    class="text modalText"
-                >{{gameOver && playerOrder !== 'none' ? playerOrder + ' player wins!' : 'Draw'}} </p>
-                <button
-                    class="text"
-                    v-on:click.prevent="resetGame"
-                >Reset</button>
-            </div>
-        </div>
-
+        <Modal
+            :gameOver="gameOver"
+            :resetGame="resetGame"
+            :playerOrder="playerOrder"
+        ></Modal>
     </div>
 </template>
 
 <style scoped>
-.dark{
+.darkMain{
+    background-color: var(--new-dark-gray);
+    color: var(--new-white);
+}
+.lightMain{
+    background-color: var(--new-white);
+    color: var(--new-black)
+}
+
+.darkButton{
     background-color: black;
     color: white;
 }
-.light{
-    background-color: whiet;
+.lightButton{
+    background-color: white;
     color: black;
 }
 .main-container{
@@ -227,33 +237,7 @@ export default {
     height: 100vh;
     font-family: 'Urbanist', sans-serif;
 }
-.modal{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(2px);
-}
-.boxModal{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 300px;
-    height: 300px;
-    background-color: rgba(43, 39, 48, 0.9);
-}
-.modalText{
-    color: var(--new-white);
-    font-family: 'Urbanist', sans-serif;
-    font-size: 30px;
-}
 
-button{
-    padding: 10px;
-    font-family: 'Urbanist', sans-serif;
-}
 .actual-player{
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
@@ -276,11 +260,11 @@ table, tr, td{
     font-weight: 900;
     font-size: 100px;
 }
-.column.clicked:focus{
-    animation: pop 0.3s linear 1;
+.column.clicked{
+    animation: pop 0.2s linear 1;
 }
 @keyframes pop{
-  50%  {transform: scale(1.2);}
+  50%  {transform: scale(1.1);}
 }
 .x-theme{
     background-color: var(--new-pink);

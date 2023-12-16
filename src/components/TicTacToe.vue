@@ -1,6 +1,7 @@
 <script lang="ts">
 import '../main.scss'
 import Modal from './Modal.vue'
+
 interface Stats {
     x_Wins: number,
     o_Wins: number,
@@ -28,6 +29,7 @@ export default {
                 draw: 0,
             } as Stats,
             aiPlay: false as boolean,
+            audio: new Audio("https://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"),
         }
     },
     methods: {
@@ -35,6 +37,7 @@ export default {
             if (this.board[rowIndex][colIndex] == "") {
                 this.board[rowIndex][colIndex] = this.playerOrder
                 this.clicks += 1
+                this.playSoundEffect()
                 if (this.checkWinCondition()) {
                     this.gameOver = true
                     switch (this.playerOrder) {
@@ -151,6 +154,9 @@ export default {
             this.stats.draw = 0
             this.playerOrder = "X"
         },
+        playSoundEffect():void{
+            this.audio.play()
+        }
     }
 }
 </script>
@@ -221,14 +227,7 @@ export default {
     color: var(--new-black)
 }
 
-.darkButton{
-    background-color: black;
-    color: white;
-}
-.lightButton{
-    background-color: white;
-    color: black;
-}
+
 .main-container{
     display: flex;
     flex-direction: column;
@@ -285,5 +284,23 @@ table, tr, td{
     padding: 4px;
     font-family: 'Urbanist', sans-serif;
     font-weight: 500;
+    border-radius: 100px;
 }
+.ai-button{
+    margin-top: 60px;
+    border-radius: 100px;
+    color: black;
+}
+.darkButton {
+    background-color: yellowgreen;
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lightButton {
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+}
+
 </style>

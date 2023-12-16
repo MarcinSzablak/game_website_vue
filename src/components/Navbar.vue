@@ -20,8 +20,16 @@ export default {
             ></NavBarLink>
         </ul>
         <button
+            class="themeButton"
             v-on:click="changeTheme"
-        >asds</button>
+        >
+            <font-awesome-icon
+                class="themeIcon"
+                :class="theme ? 'dark': 'light'"
+                icon="circle-half-stroke"
+            />
+        </button>
+
     </nav>
 </template>
 
@@ -37,7 +45,6 @@ export default {
     justify-content: flex-start;
     align-items: center;
     min-width: 100%;
-
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -51,5 +58,20 @@ export default {
 .navbar-title{
     font-weight: 600;
     font-size: large;
+}
+.themeButton{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+    background: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.themeButton:hover{
+    background-color: rgba(254, 246, 255, 0.2);
+}
+.themeIcon{
+    background: none;
 }
 </style>

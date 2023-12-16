@@ -166,6 +166,21 @@ export default {
         class="main-container unselectable"
         :class="theme ? 'darkMain' : 'lightMain'">
 
+        <div
+            class="stats-box"
+            >
+            <p
+                v-for="(stat, statIndex) in stats"
+                class="text stats"
+                :class="{
+                    'x-theme': statIndex.toString() === 'x_Wins',
+                    'o-theme': statIndex.toString() === 'o_Wins',
+                    'darkMain': theme ,
+                    'lightMain': !theme,
+                }"
+            >{{statIndex.toString().replace("_"," ")}}: {{stat}}</p>
+        </div>
+
         <p class="actual-player" :class="theme ? 'darkMain' : 'lightMain'">{{gameOver && playerOrder === 'none' ? 'Draw' : playerOrder}}</p>
 
         <table class="board">
@@ -191,19 +206,6 @@ export default {
             </tr>
         </table>
 
-        <div class="stats-box">
-            <p
-                v-for="(stat, statIndex) in stats"
-                class="text stats"
-                :class="{
-                    'x-theme': statIndex.toString() === 'x_Wins',
-                    'o-theme': statIndex.toString() === 'o_Wins',
-                    'darkMain': theme ,
-                    'lightMain': !theme,
-                }"
-            >{{statIndex.toString().replace("_"," ")}}: {{stat}}</p>
-        </div>
-
         <button
             class="ai-button"
             :class="aiPlay ? 'darkButton': 'lightButton'"
@@ -226,7 +228,6 @@ export default {
     background-color: var(--new-white);
     color: var(--new-black)
 }
-
 
 .main-container{
     display: flex;
@@ -258,6 +259,7 @@ table, tr, td{
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
     font-size: 100px;
+    cursor: pointer;
 }
 .column.clicked{
     animation: pop 0.2s linear 1;
@@ -267,9 +269,11 @@ table, tr, td{
 }
 .x-theme{
     background-color: var(--new-pink);
+    cursor: default;
 }
 .o-theme{
     background-color: var(--new-blue);
+    cursor: default;
 }
 
 .stats-box{
@@ -278,8 +282,10 @@ table, tr, td{
     width: 350px;
     justify-content: space-between;
     align-content: center;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 100px;
 }
-
 .stats{
     padding: 4px;
     font-family: 'Urbanist', sans-serif;
@@ -290,6 +296,8 @@ table, tr, td{
     margin-top: 60px;
     border-radius: 100px;
     color: black;
+    padding: 10px;
+    cursor: pointer;
 }
 .darkButton {
     background-color: yellowgreen;
@@ -298,7 +306,7 @@ table, tr, td{
 }
 
 .lightButton {
-    background-color: white;
+    background-color: var(--new-white);
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
     transition: background-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
 }

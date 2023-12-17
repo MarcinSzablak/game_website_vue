@@ -1,4 +1,5 @@
 <script lang="ts">
+import CoinFlip from './components/CoinFlip.vue';
 import Navbar from './components/Navbar.vue';
 import NewFooter from './components/NewFooter.vue';
 import TicTacToe from './components/TicTacToe.vue';
@@ -8,7 +9,8 @@ export default{
   components:{
     Navbar,
     NewFooter,
-    TicTacToe
+    TicTacToe,
+    CoinFlip
 },
   created(){
     this.getLinks()
@@ -41,9 +43,13 @@ export default{
     :changeTheme="changeTheme"
   ></navbar>
 
-  <tic-tac-toe
+  <!-- <tic-tac-toe
     :theme="theme"
-  ></tic-tac-toe>
+  ></tic-tac-toe> -->
+
+  <coin-flip
+    :theme="theme"
+  ></coin-flip>
 
   <new-footer
     :theme="theme"

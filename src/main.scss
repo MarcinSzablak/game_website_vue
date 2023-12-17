@@ -47,3 +47,21 @@ body{
     background-color: var(--new-purple);
     color: var(--new-black);
 }
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.darkMain{
+    background-color: var(--new-dark-gray);
+    color: var(--new-white);
+}
+.lightMain{
+    background-color: var(--new-white);
+    color: var(--new-black)
+}

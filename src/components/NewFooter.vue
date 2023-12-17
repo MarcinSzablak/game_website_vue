@@ -14,7 +14,10 @@ export default{
             class="text"
             :class="theme ? 'dark': 'light'"
             href="https://github.com/MarcinSzablak"
-        >made by Jerz</a>
+        >made by Jerz
+            <font-awesome-icon icon="fa-brands fa-github" />
+        </a>
+
     </div>
 </template>
 

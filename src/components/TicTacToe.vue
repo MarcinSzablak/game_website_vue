@@ -205,7 +205,6 @@ export default {
                 >{{board[rowIndex][colIndex]}}</button>
             </tr>
         </table>
-
         <button
             class="ai-button"
             :class="aiPlay ? 'darkButton': 'lightButton'"
@@ -220,24 +219,6 @@ export default {
 </template>
 
 <style scoped>
-.darkMain{
-    background-color: var(--new-dark-gray);
-    color: var(--new-white);
-}
-.lightMain{
-    background-color: var(--new-white);
-    color: var(--new-black)
-}
-
-.main-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Urbanist', sans-serif;
-}
-
 .actual-player{
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;

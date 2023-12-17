@@ -1,0 +1,122 @@
+<script lang="ts">
+import '../main.scss'
+import Modal from './Modal.vue'
+import TextMessege from './TextMessege.vue'
+
+export default {
+    props:['theme'],
+    components:{
+        TextMessege
+    },
+    data(){
+        return{
+            coinStatus: "head" as string,
+            dummyToggle: false as boolean,
+            clicked: false as boolean,
+            coinStatusShow: "head" as string,
+        }
+    },
+    methods:{
+        coinFlip(): void{
+            if(this.clicked == false){
+                this.clicked = true
+            }
+            var random: number = Math.random() * 2
+            if(random > 1){
+                this.coinStatus = "head"
+            }
+            else{
+                this.coinStatus = "tail"
+            }
+            this.dummyToggle = !this.dummyToggle;
+            setTimeout(() => {
+                this.coinStatus = this.coinStatus === 'head' ? 'tail' : 'head';
+                this.dummyToggle = !this.dummyToggle;
+                setTimeout(() =>{
+                    this.coinStatusShow = this.coinStatus
+                },1850)
+            }, 100);
+        },
+    },
+}
+</script>
+
+<template>
+    <div
+        class="main-container unselectable"
+        :class="theme ? 'darkMain' : 'lightMain'">
+        <text-messege
+            :text="'Click the coin!'"
+            :clicked="clicked"
+        ></text-messege>
+        <div
+            class="coin"
+            :class=" coinStatus === 'head' ? 'flipHead' : 'flipTail' "
+            v-on:click="coinFlip"
+        >
+            <div class="side head"></div>
+            <div class="side tail"></div>
+        </div>
+        <h3 class="coin-status">{{coinStatusShow}}</h3>
+    </div>
+</template>
+
+<style scoped>
+.coin{
+    width: 200px;
+    height: 200px;
+    border-radius: 1000px;
+    background-color: brown;
+    color: var(--new-white);
+    cursor: pointer;
+    transition: transform 1s ease-in;
+    transform-style: preserve-3d;
+}
+.side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    backface-visibility: hidden;
+    }
+.head{
+    background: url("../../public/orzel.png") center no-repeat;
+    background-size: cover;
+}
+.tail{
+    background: url("../../public/reszka.png") center no-repeat;
+    background-size: cover;
+    transform: rotateX(-180deg);
+}
+.flipHead {
+    animation: resultHead 2s ease-out forwards;
+}
+.flipTail {
+    animation: resultTail 2s ease-out forwards;
+}
+
+@keyframes resultHead {
+    from {
+    transform: rotateX(0);
+    }
+    to {
+    transform: rotateX(1800deg);
+    }
+}
+
+@keyframes resultTail {
+    from {
+    transform: rotateX(0);
+    }
+    to {
+    transform: rotateX(1980deg);
+    }
+}
+
+.coin-status{
+    margin-top: 10px;
+}
+</style>

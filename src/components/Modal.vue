@@ -9,12 +9,12 @@ export default{
         :style=" !gameOver ? {display: 'none'}: {display: 'flex'}"
         class="modal"
         >
-        <div class="boxModal">
+        <div class="box-modal">
             <p
-                class="text modalText"
+                class="text modal-text"
             >{{gameOver && playerOrder !== 'none' ? playerOrder + ' player wins!' : 'Draw'}} </p>
             <button
-                class="text"
+                class="modal-button"
                 v-on:click.prevent="resetGame"
             >Reset</button>
         </div>
@@ -29,7 +29,7 @@ export default{
     align-items: center;
     backdrop-filter: blur(2px);
 }
-.boxModal{
+.box-modal{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -38,9 +38,14 @@ export default{
     height: 300px;
     background-color: rgba(43, 39, 48, 0.9);
 }
-.modalText{
+.modal-text{
     color: var(--new-white);
     font-family: 'Urbanist', sans-serif;
     font-size: 30px;
+}
+.modal-button{
+    padding: 7px;
+    font-family: 'Urbanist', sans-serif;
+    border-radius: 2px;
 }
 </style>

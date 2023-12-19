@@ -2,11 +2,13 @@
 import '../main.scss'
 import Modal from './Modal.vue'
 import TextMessege from './TextMessege.vue'
+import Chart from './Chart.vue'
 
 export default {
     props:['theme'],
     components:{
-        TextMessege
+        TextMessege,
+        Chart
     },
     data(){
         return{
@@ -14,6 +16,8 @@ export default {
             dummyToggle: false as boolean,
             clicked: false as boolean,
             coinStatusShow: "head" as string,
+            templateHeadMeter: 1 as number,
+            templateTailMeter: 1 as number,
         }
     },
     methods:{
@@ -34,6 +38,7 @@ export default {
                 this.dummyToggle = !this.dummyToggle;
                 setTimeout(() =>{
                     this.coinStatusShow = this.coinStatus
+                    this.coinStatus == "head" ? this.templateHeadMeter+=1 : this.templateTailMeter +=1
                 },1850)
             }, 100);
         },
@@ -58,6 +63,10 @@ export default {
             <div class="side tail"></div>
         </div>
         <h3 class="coin-status">{{coinStatusShow}}</h3>
+        <chart
+            :firstCounter="templateHeadMeter"
+            :secondCounter="templateTailMeter"
+        ></chart>
     </div>
 </template>
 

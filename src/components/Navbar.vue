@@ -1,6 +1,6 @@
 <script lang="ts">
 import '../main.scss';
-import NavBarLink from './NavbarLink.vue';
+import NavBarLink from './modules/NavbarLink.vue';
 
 export default {
     props:['links', 'theme', 'changeTheme'],

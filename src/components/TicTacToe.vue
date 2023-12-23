@@ -1,6 +1,6 @@
 <script lang="ts">
 import '../main.scss'
-import Modal from './Modal.vue'
+import Modal from './modules/Modal.vue'
 
 interface Stats {
     x_Wins: number,

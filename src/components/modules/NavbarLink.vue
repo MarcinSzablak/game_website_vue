@@ -1,5 +1,5 @@
 <script lang="ts">
-import '../main.scss'
+import '../../main.scss'
 export default{
     props:[ 'links', 'theme'],
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
 import CoinFlip from './components/CoinFlip.vue';
+import Memory from './components/Memory.vue';
 import Navbar from './components/Navbar.vue';
 import NewFooter from './components/NewFooter.vue';
 import TicTacToe from './components/TicTacToe.vue';
@@ -10,7 +11,8 @@ export default{
     Navbar,
     NewFooter,
     TicTacToe,
-    CoinFlip
+    CoinFlip,
+    Memory
 },
   created(){
     this.getLinks()
@@ -46,10 +48,13 @@ export default{
   <!-- <tic-tac-toe
     :theme="theme"
   ></tic-tac-toe> -->
-
+<!--
   <coin-flip
     :theme="theme"
-  ></coin-flip>
+  ></coin-flip> -->
+  <memory
+    :theme="theme"
+  ></memory>
 
   <new-footer
     :theme="theme"

@@ -1,8 +1,7 @@
 <script lang="ts">
 import '../main.scss'
-import Modal from './Modal.vue'
-import TextMessege from './TextMessege.vue'
-import Chart from './Chart.vue'
+import TextMessege from './modules/TextMessege.vue'
+import Chart from './modules/Chart.vue'
 
 export default {
     props:['theme'],
@@ -66,6 +65,8 @@ export default {
         <chart
             :firstCounter="templateHeadMeter"
             :secondCounter="templateTailMeter"
+            :firstText="'Head'"
+            :secondText="'Tail'"
         ></chart>
     </div>
 </template>
@@ -92,11 +93,11 @@ export default {
     backface-visibility: hidden;
     }
 .head{
-    background: url("../../public/orzel.png") center no-repeat;
+    background: url("/orzel.png") center no-repeat;
     background-size: cover;
 }
 .tail{
-    background: url("../../public/reszka.png") center no-repeat;
+    background: url("/reszka.png") center no-repeat;
     background-size: cover;
     transform: rotateX(-180deg);
 }

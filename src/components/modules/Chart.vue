@@ -1,6 +1,6 @@
 <script lang="ts">
   export default {
-    props:[ 'firstCounter', 'secondCounter' ],
+    props:[ 'firstCounter', 'secondCounter', 'firstText', 'secondText' ],
     computed: {
       total(): number {
         return this.firstCounter + this.secondCounter;
@@ -29,6 +29,10 @@
         <div class="bar">
             <div class="first" :style="{ width: firstPercentage }"></div>
             <div class="second" :style="{ width: secondPercentage }"></div>
+        </div>
+        <div class="bar-text">
+            <p>{{ firstText }} {{ Math.round(parseInt(firstPercentage)) }}%</p>
+            <p>{{ secondText}} {{ Math.round(parseInt(secondPercentage)) }}%</p>
         </div>
     </div>
 </template>

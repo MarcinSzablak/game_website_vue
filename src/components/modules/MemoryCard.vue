@@ -1,11 +1,13 @@
 <script lang="ts">
 export default{
-    props:['theme'],
+    props:['card'],
 }
 </script>
 
 <template>
-     <div>memoryCard</div>
+     <div
+        :id="card.id"
+     >{{card.name}}</div>
 </template>
 
 <style scoped>

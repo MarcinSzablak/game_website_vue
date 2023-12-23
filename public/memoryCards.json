@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "name": "Lion",
+        "img": "lion.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Elephant",
+        "img": "elephant.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Giraffe",
+        "img": "giraffe.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Tiger",
+        "img": "tiger.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Panda",
+        "img": "panda.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Kangaroo",
+        "img": "kangaroo.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Zebra",
+        "img": "zebra.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Gorilla",
+        "img": "gorilla.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Polar Bear",
+        "img": "polar_bear.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Hippopotamus",
+        "img": "hippo.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Leopard",
+        "img": "leopard.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Koala",
+        "img": "koala.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Rhino",
+        "img": "rhino.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Penguin",
+        "img": "penguin.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Giraffe",
+        "img": "giraffe2.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Lemur",
+        "img": "lemur.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Red Panda",
+        "img": "red_panda.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Orangutan",
+        "img": "orangutan.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Chimpanzee",
+        "img": "chimpanzee.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Sloth",
+        "img": "sloth.jpg"
+    }
+]

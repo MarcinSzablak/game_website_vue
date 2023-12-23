@@ -16,19 +16,25 @@ export default{
 },
   created(){
     this.getLinks()
+    this.getMemoryCards()
   },
   data() {
     return {
-        links: [] as Array<any>,
-        theme: false as boolean
+      links: [] as Array<object>,
+      theme: false as boolean,
+      cards: [] as Array<any>
     }
   },
   methods: {
     async getLinks() {
-        let res = await fetch('navBarLinks.json');
-        let data = await res.json();
-
-        this.links = data;
+      let res = await fetch('navBarLinks.json');
+      let data = await res.json();
+      this.links = data;
+    },
+    async getMemoryCards(){
+      let res = await fetch('memoryCards.json');
+      let data = await res.json();
+      this.cards = data;
     },
     changeTheme(){
       this.theme = !this.theme
@@ -54,6 +60,7 @@ export default{
   ></coin-flip> -->
   <memory
     :theme="theme"
+    :cards="cards"
   ></memory>
 
   <new-footer

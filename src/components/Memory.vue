@@ -2,10 +2,13 @@
 import Timer from './modules/Timer.vue'
 import MemoryCard from './modules/MemoryCard.vue'
 export default{
-    props:['theme'],
+    props:['theme', 'cards'],
     components:{
         Timer,
         MemoryCard
+    },
+    methods:{
+
     }
 }
 </script>
@@ -15,7 +18,10 @@ export default{
         class="main-container unselectable"
         :class="theme ? 'darkMain' : 'lightMain'">
         <timer></timer>
-        <memory-card></memory-card>
+        <memory-card
+            v-for="card in cards"
+            :card="card"
+        ></memory-card>
     </div>
 </template>
 

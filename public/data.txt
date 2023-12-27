@@ -1,0 +1,90 @@
+    {
+        "id": 3,
+        "name": "Giraffe",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/800px-Giraffe_Mikumi_National_Park.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Tiger",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Walking_tiger_female.jpg/1200px-Walking_tiger_female.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Panda",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/1200px-Grosser_Panda.JPG"
+    },
+    {
+        "id": 6,
+        "name": "Kangaroo",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kangaroo_Australia_01_11_2008_-_retouch.JPG"
+    },
+    {
+        "id": 7,
+        "name": "Zebra",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Plains_Zebra_Equus_quagga.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Gorilla",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg/800px-Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Polar Bear",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Hippopotamus",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Portrait_Hippopotamus_in_the_water.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Leopard",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/African_leopard_male_%28cropped%29.jpg/800px-African_leopard_male_%28cropped%29.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Koala",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/800px-Koala_climbing_tree.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Rhino",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/White_Rhinoceros_%28Ceratotherium_simum%29_%286628446501%29.jpg/1920px-White_Rhinoceros_%28Ceratotherium_simum%29_%286628446501%29.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Penguin",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Bat",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/7/77/Big-eared-townsend-fledermaus.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Lemur",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Ring_tailed_lemur_and_twins.jpg/1200px-Ring_tailed_lemur_and_twins.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Red Panda",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Panda_%2824986761703%29.jpg/800px-Red_Panda_%2824986761703%29.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Orangutan",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Orang_Utan%2C_Semenggok_Forest_Reserve%2C_Sarawak%2C_Borneo%2C_Malaysia.JPG/1200px-Orang_Utan%2C_Semenggok_Forest_Reserve%2C_Sarawak%2C_Borneo%2C_Malaysia.JPG"
+    },
+    {
+        "id": 19,
+        "name": "Chimpanzee",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/1200px-015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Sloth",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/be/Bicho-pregui%C3%A7a_3.jpg"
+    }

@@ -16,13 +16,11 @@ export default{
 },
   created(){
     this.getLinks()
-    this.getMemoryCards()
   },
   data() {
     return {
       links: [] as Array<object>,
       theme: false as boolean,
-      cards: [] as Array<any>
     }
   },
   methods: {
@@ -30,11 +28,6 @@ export default{
       let res = await fetch('navBarLinks.json');
       let data = await res.json();
       this.links = data;
-    },
-    async getMemoryCards(){
-      let res = await fetch('memoryCards.json');
-      let data = await res.json();
-      this.cards = data;
     },
     changeTheme(){
       this.theme = !this.theme
@@ -54,13 +47,11 @@ export default{
   <!-- <tic-tac-toe
     :theme="theme"
   ></tic-tac-toe> -->
-<!--
-  <coin-flip
+  <!-- <coin-flip
     :theme="theme"
   ></coin-flip> -->
   <memory
     :theme="theme"
-    :cards="cards"
   ></memory>
 
   <new-footer

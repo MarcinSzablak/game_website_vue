@@ -2,13 +2,63 @@
 import Timer from './modules/Timer.vue'
 import MemoryCard from './modules/MemoryCard.vue'
 export default{
-    props:['theme', 'cards'],
+    props:['theme'],
     components:{
         Timer,
         MemoryCard
     },
-    methods:{
+    data(){
+        return{
+            cards: [] as Array<any>,
+            mixedCards: [] as Array<Object>,
+            flippedCards: [] as Array<any>,
+            matchedCards: [] as Array<number>
+        }
+    },
+    async created(){
+        await this.getMemoryCards()
+        this.setUpCards()
+        this.cards.forEach((card) => {
+            card.isFlipped = false;
+            card.isMatched = false;
+        });
+    },
 
+    methods:{
+        async getMemoryCards(){
+            let res = await fetch('memoryCards.json');
+            let data = await res.json();
+            this.cards = data;
+        },
+        setUpCards(): void{
+            var duplicatedCards = this.cards.map(card => ({ ...card }));
+            duplicatedCards.push(...this.cards.map(card => ({ ...card })));
+            this.mixedCards = duplicatedCards
+            this.mixedCards = this.mixedCards.sort(() => Math.random() - 0.5 )
+        },
+        flipCard(card: any):void{
+            if(card.isMatched || card.isFlipped || this.flippedCards.length === 2){
+                return
+            }
+            card.isFlipped = true
+            if(this.flippedCards.length < 2){
+                this.flippedCards.push(card);
+            }
+            if(this.flippedCards.length === 2)    {
+                this.match();
+            }
+        },
+        match(): void{
+            if(this.flippedCards[0].name === this.flippedCards[1].name)
+            {
+                this.flippedCards.forEach(card => card.isMatched = true);
+                this.flippedCards = [];
+            }
+            else{
+                this.flippedCards.forEach(card => card.isFlipped = false);
+                this.flippedCards = [];
+            }
+        },
     }
 }
 </script>
@@ -18,13 +68,23 @@ export default{
         class="main-container unselectable"
         :class="theme ? 'darkMain' : 'lightMain'">
         <timer></timer>
-        <memory-card
-            v-for="card in cards"
-            :card="card"
-        ></memory-card>
+        <div
+            class="cards"
+        >
+            <memory-card
+                v-for="card in mixedCards"
+                :card="card"
+                :flipCard="()=>flipCard(card)"
+            ></memory-card>
+        </div>
     </div>
 </template>
 
 <style scoped>
-
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
 </style>

@@ -91,7 +91,7 @@ export default {
     border-radius: 50%;
     position: absolute;
     backface-visibility: hidden;
-    }
+}
 .head{
     background: url("/orzel.png") center no-repeat;
     background-size: cover;

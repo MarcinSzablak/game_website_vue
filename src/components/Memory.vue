@@ -25,38 +25,46 @@ export default{
     },
 
     methods:{
-        async getMemoryCards(){
+        async getMemoryCards(): Promise<void>{
             let res = await fetch('memoryCards.json');
             let data = await res.json();
             this.cards = data;
         },
+
         setUpCards(): void{
             var duplicatedCards = this.cards.map(card => ({ ...card }));
             duplicatedCards.push(...this.cards.map(card => ({ ...card })));
             this.mixedCards = duplicatedCards
             this.mixedCards = this.mixedCards.sort(() => Math.random() - 0.5 )
         },
-        flipCard(card: any):void{
+
+        flipCard(card: any) :void{
             if(card.isMatched || card.isFlipped || this.flippedCards.length === 2){
                 return
             }
+
             card.isFlipped = true
             if(this.flippedCards.length < 2){
                 this.flippedCards.push(card);
             }
-            if(this.flippedCards.length === 2)    {
+            if(this.flippedCards.length === 2){
                 this.match();
             }
         },
+
         match(): void{
             if(this.flippedCards[0].name === this.flippedCards[1].name)
             {
-                this.flippedCards.forEach(card => card.isMatched = true);
-                this.flippedCards = [];
+                setTimeout(() => {
+                    this.flippedCards.forEach(card => card.isMatched = true);
+                    this.flippedCards = [];
+                },400)
             }
             else{
-                this.flippedCards.forEach(card => card.isFlipped = false);
-                this.flippedCards = [];
+                setTimeout(() => {
+                    this.flippedCards.forEach(card => card.isFlipped = false);
+                    this.flippedCards = [];
+                }, 800)
             }
         },
     }
@@ -84,7 +92,7 @@ export default{
 .cards{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
 }
 </style>

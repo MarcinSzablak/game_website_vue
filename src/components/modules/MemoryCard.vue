@@ -8,19 +8,21 @@ export default{
     <div
         class="card"
         v-on:click="flipCard"
-        :class="{ 'flip': card.isFlipped, 'flipImage': !card.isFlipped, 'matched' : card.isMatched }"
+        :class="{ 'flip': card.isFlipped, 'flipImage': !card.isFlipped}"
     >
-      <div class="card-front side"></div>
-      <img
-        class="card-image side"
-        :src="card.img"
-      />
+        <div class="card-front side"></div>
+        <img
+            class="card-image side"
+            :class="{ 'matched' : card.isMatched }"
+            :src="card.img"
+        />
     </div>
-  </template>
+</template>
 
 <style scoped>
 .matched{
     cursor: default !important;
+    opacity: 0.7;
 }
 .side{
     display: flex;
@@ -38,7 +40,8 @@ export default{
 .card-image{
     backface-visibility: hidden;
     transform: rotateY(180deg);
-    object-fit: fill;
+    object-fit: cover;
+    cursor: default;
 }
 .card{
     -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.25);
@@ -53,8 +56,8 @@ export default{
     margin: 10px;
     cursor: pointer;
     position: relative;
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
     perspective: 1000px;
     transform-style: preserve-3d;
 }

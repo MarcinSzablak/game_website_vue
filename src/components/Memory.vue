@@ -1,27 +1,27 @@
 <script lang="ts">
 import Timer from './modules/Timer.vue'
 import MemoryCard from './modules/MemoryCard.vue'
+import Modal from './modules/Modal.vue'
 export default{
     props:['theme'],
     components:{
-        Timer,
-        MemoryCard
-    },
+    Timer,
+    MemoryCard,
+    Modal
+},
     data(){
         return{
             cards: [] as Array<any>,
-            mixedCards: [] as Array<Object>,
+            mixedCards: [] as Array<any>,
             flippedCards: [] as Array<any>,
-            matchedCards: [] as Array<number>
+            matchedCards: [] as Array<number>,
+            firstClick: false as boolean,
+            gameOver: false as boolean,
         }
     },
     async created(){
         await this.getMemoryCards()
         this.setUpCards()
-        this.cards.forEach((card) => {
-            card.isFlipped = false;
-            card.isMatched = false;
-        });
     },
 
     methods:{
@@ -32,6 +32,10 @@ export default{
         },
 
         setUpCards(): void{
+            this.cards.forEach((card) => {
+                card.isFlipped = false;
+                card.isMatched = false;
+            });
             var duplicatedCards = this.cards.map(card => ({ ...card }));
             duplicatedCards.push(...this.cards.map(card => ({ ...card })));
             this.mixedCards = duplicatedCards
@@ -39,6 +43,11 @@ export default{
         },
 
         flipCard(card: any) :void{
+            if(!this.firstClick){
+                this.firstClick = true
+                this.$refs.timer.toggleTimer()
+            }
+
             if(card.isMatched || card.isFlipped || this.flippedCards.length === 2){
                 return
             }
@@ -58,6 +67,10 @@ export default{
                 setTimeout(() => {
                     this.flippedCards.forEach(card => card.isMatched = true);
                     this.flippedCards = [];
+                    if(this.mixedCards.every(card => card.isMatched === true)){
+                        this.gameOver = true;
+                        this.$refs.timer.toggleTimer()
+                    }
                 },400)
             }
             else{
@@ -67,6 +80,13 @@ export default{
                 }, 800)
             }
         },
+
+        resetGame(){
+            this.firstClick = false
+            this.gameOver = false
+            this.setUpCards()
+            this.$refs.timer.reset()
+        }
     }
 }
 </script>
@@ -75,7 +95,9 @@ export default{
      <div
         class="main-container unselectable"
         :class="theme ? 'darkMain' : 'lightMain'">
-        <timer></timer>
+        <timer
+            ref="timer"
+        ></timer>
         <div
             class="cards"
         >
@@ -84,6 +106,11 @@ export default{
                 :card="card"
                 :flipCard="()=>flipCard(card)"
             ></memory-card>
+            <modal
+                :gameOver="gameOver"
+                :playerOrder="gameOver ? 'In ' + $refs.timer.formattedTime + 's' : false"
+                :resetGame="resetGame"
+            ></modal>
         </div>
     </div>
 </template>

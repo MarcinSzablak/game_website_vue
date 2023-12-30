@@ -44,8 +44,6 @@ export default {
 <template>
   <div class="stopwatch">
     <div class="timer">{{ formattedTime }}</div>
-    <button @click="toggleTimer">{{ isRunning ? 'Stop' : 'Start' }}</button>
-    <button @click="reset" :disabled="isRunning">Reset</button>
   </div>
 </template>
 

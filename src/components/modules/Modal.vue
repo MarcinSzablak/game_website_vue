@@ -27,6 +27,7 @@ export default{
     height: 100%;
     justify-content: center;
     align-items: center;
+    top: 0;
     backdrop-filter: blur(2px);
 }
 .box-modal{
@@ -42,6 +43,7 @@ export default{
     color: var(--new-white);
     font-family: 'Urbanist', sans-serif;
     font-size: 30px;
+    text-align: center;
 }
 .modal-button{
     padding: 7px;

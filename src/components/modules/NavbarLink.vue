@@ -19,9 +19,13 @@ export default{
 </template>
 
 <style scoped>
+
+.text{
+    font-size: calc(15px + 0.5vw);;
+}
 .list-element{
     list-style: none;
-    margin-right: 10px;
+    margin-right: calc(5px + 0.5vw);
 }
 
 .list-link-light{
@@ -46,5 +50,15 @@ export default{
 .list-link-dark:hover{
     color:rgba(254, 246, 255, 0.8);
     text-decoration-color: rgba(254, 246, 255, 1);
+}
+
+
+@media screen and (max-width: 650px) {
+    .list-element{
+        margin: calc(10px + 0.5vw);
+    }
+    .text{
+        font-size: calc(20px + 0.5vw);;
+    }
 }
 </style>

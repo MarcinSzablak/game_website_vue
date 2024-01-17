@@ -36,6 +36,7 @@ body{
     font-family: 'Tektur', sans-serif;
     text-decoration: none;
     color: var(--new-black);
+    font-size: x-large;
 }
 
 .dark{
@@ -49,10 +50,10 @@ body{
 }
 
 .main-container{
-    padding-top: 60px;
+    padding-top: calc(15px + 0.5vh);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     height: auto;

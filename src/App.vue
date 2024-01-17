@@ -37,27 +37,25 @@ export default{
 </script>
 
 <template>
-
   <navbar
     :links="links"
     :theme="theme"
     :changeTheme="changeTheme"
   ></navbar>
 
-  <!-- <tic-tac-toe
+  <tic-tac-toe
     :theme="theme"
-  ></tic-tac-toe> -->
+  ></tic-tac-toe>
   <!-- <coin-flip
     :theme="theme"
   ></coin-flip> -->
-  <memory
+  <!-- <memory
     :theme="theme"
-  ></memory>
+  ></memory> -->
 
   <new-footer
     :theme="theme"
   ></new-footer>
-
 </template>
 
 <style scoped>

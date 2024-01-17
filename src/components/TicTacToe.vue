@@ -209,7 +209,7 @@ export default {
             class="ai-button"
             :class="aiPlay ? 'darkButton': 'lightButton'"
             v-on:click.prevent="changeToAi"
-        >aiPlay</button>
+        >AI Play</button>
         <Modal
             :gameOver="gameOver"
             :resetGame="resetGame"
@@ -221,6 +221,7 @@ export default {
 <style scoped>
 .actual-player{
     font-family: 'Urbanist', sans-serif;
+    font-size: x-large;
     font-weight: 900;
 }
 .row{
@@ -234,12 +235,12 @@ table, tr, td{
     justify-content: center;
     align-items: center;
     background-color: var(--new-gray);
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin: 5px;
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
-    font-size: 100px;
+    font-size: 150px;
     cursor: pointer;
 }
 .column.clicked{
@@ -268,28 +269,35 @@ table, tr, td{
     border-radius: 100px;
 }
 .stats{
-    padding: 4px;
+    padding: 6px;
     font-family: 'Urbanist', sans-serif;
+    font-size:x-large;
     font-weight: 500;
     border-radius: 100px;
 }
 .ai-button{
     margin-top: 60px;
-    border-radius: 100px;
+    border-radius: 10px;
+    font-size: x-large;
     color: black;
     padding: 10px;
     cursor: pointer;
 }
 .darkButton {
-    background-color: yellowgreen;
-    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: var(--new-purple);
+    color:white;
+    border:2px var(--new-purple) solid;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .lightButton {
     background-color: var(--new-white);
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+    border:2px black solid;
+    transition: background-color 0.3s ease, box-shadow 0.1s ease, color 0.1s ease;
+}
+
+@media only screen and (max-width: 768px) {
+
 }
 
 </style>

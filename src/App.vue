@@ -16,6 +16,7 @@ export default{
 },
   created(){
     this.getLinks()
+    this.getThemeSetting()
   },
   data() {
     return {
@@ -31,7 +32,25 @@ export default{
     },
     changeTheme(){
       this.theme = !this.theme
+      this.storeThemeSetting()
     },
+    storeThemeSetting() {
+      localStorage.setItem('theme', this.theme.toString());
+    },
+    getThemeSetting() {
+      let theme = localStorage.getItem('theme');
+      let themeBoolen: boolean
+      if(theme == "true"){
+         themeBoolen = true
+      }
+      else{
+        themeBoolen = false
+      }
+
+      if (theme) {
+          this.theme = themeBoolen
+      }
+    }
   },
 }
 </script>

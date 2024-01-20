@@ -35,7 +35,7 @@ export default {
             <a
               class="navbar-title text"
               :class="theme ? 'dark': 'light'"
-              href="#"
+              href="/"
               >GameWebsite</a>
             <button
               class="themeButton"

@@ -50,11 +50,11 @@ export default {
 <style scoped>
 .stopwatch {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 2vh;
 }
 
 .timer {
-  font-size: 3em;
-  margin-bottom: 10px;
+  font-size: calc(1.5vw + 3.5vh);
+  margin-bottom: 1vh;
 }
 </style>

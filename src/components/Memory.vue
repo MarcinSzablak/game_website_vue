@@ -45,7 +45,7 @@ export default{
         flipCard(card: any) :void{
             if(!this.firstClick){
                 this.firstClick = true
-                this.$refs.timer.toggleTimer()
+                this.toggleTimer()
             }
 
             if(card.isMatched || card.isFlipped || this.flippedCards.length === 2){
@@ -69,7 +69,7 @@ export default{
                     this.flippedCards = [];
                     if(this.mixedCards.every(card => card.isMatched === true)){
                         this.gameOver = true;
-                        this.$refs.timer.toggleTimer()
+                        this.toggleTimer()
                     }
                 },400)
             }
@@ -85,7 +85,13 @@ export default{
             this.firstClick = false
             this.gameOver = false
             this.setUpCards()
-            this.$refs.timer.reset()
+            this.resetTimer()
+        },
+        toggleTimer(){
+            (this.$refs.timer as any).toggleTimer()
+        },
+        resetTimer(){
+            (this.$refs.timer as any).reset()
         }
     }
 }
@@ -108,7 +114,7 @@ export default{
             ></memory-card>
             <modal
                 :gameOver="gameOver"
-                :playerOrder="gameOver ? 'In ' + $refs.timer.formattedTime + 's' : false"
+                :playerOrder="gameOver ? 'In ' +  ($refs.timer as any).formattedTime + 's' : false"
                 :resetGame="resetGame"
             ></modal>
         </div>

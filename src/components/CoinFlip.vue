@@ -49,6 +49,13 @@ export default {
     <div
         class="main-container unselectable"
         :class="theme ? 'darkMain' : 'lightMain'">
+        <h3 class="coin-status">{{coinStatusShow}}</h3>
+        <chart
+            :firstCounter="templateHeadMeter"
+            :secondCounter="templateTailMeter"
+            :firstText="'Head'"
+            :secondText="'Tail'"
+        ></chart>
         <text-messege
             :text="'Click the coin!'"
             :clicked="clicked"
@@ -61,22 +68,22 @@ export default {
             <div class="side head"></div>
             <div class="side tail"></div>
         </div>
-        <h3 class="coin-status">{{coinStatusShow}}</h3>
-        <chart
-            :firstCounter="templateHeadMeter"
-            :secondCounter="templateTailMeter"
-            :firstText="'Head'"
-            :secondText="'Tail'"
-        ></chart>
     </div>
 </template>
 
 <style scoped>
+.main-container{
+    justify-content: flex-start;
+}
+
+.coin-status{
+    font-size: calc(0.3vw + 2.5vh);
+}
 .coin{
-    width: 200px;
-    height: 200px;
-    border-radius: 1000px;
-    background-color: brown;
+    margin-top: 20vh;
+    width: calc(8vw + 20vh);
+    height: calc(8vw + 20vh);
+    background-color: none;
     color: var(--new-white);
     cursor: pointer;
     transition: transform 1s ease-in;
@@ -126,7 +133,16 @@ export default {
     }
 }
 
-.coin-status{
-    margin-top: 10px;
+@media screen and (max-width: 650px) {
+    .coin{
+        margin-top: 10vh;
+        width: calc(8vw + 28vh);
+        height: calc(8vw + 28vh);
+        background-color: none;
+        color: var(--new-white);
+        cursor: pointer;
+        transition: transform 1s ease-in;
+        transform-style: preserve-3d;
+    }
 }
 </style>

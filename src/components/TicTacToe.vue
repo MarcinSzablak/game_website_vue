@@ -48,7 +48,6 @@ export default {
                             this.stats.o_Wins += 1
                             break;
                     }
-                    this.playerOrderChange()
                     return;
                 }
                 this.playerOrderChange()
@@ -178,7 +177,7 @@ export default {
                     'darkMain': theme ,
                     'lightMain': !theme,
                 }"
-            >{{statIndex.toString().replace("_"," ")}}: {{stat}}</p>
+            >{{statIndex.toString().replace("_Wins"," ").toUpperCase()}}: {{stat}}</p>
         </div>
 
         <p class="actual-player" :class="theme ? 'darkMain' : 'lightMain'">{{gameOver && playerOrder === 'none' ? 'Draw' : playerOrder}}</p>
@@ -221,7 +220,7 @@ export default {
 <style scoped>
 .actual-player{
     font-family: 'Urbanist', sans-serif;
-    font-size: x-large;
+    font-size: calc(1vw + 2vh);
     font-weight: 900;
 }
 .row{
@@ -235,12 +234,12 @@ table, tr, td{
     justify-content: center;
     align-items: center;
     background-color: var(--new-gray);
-    width: 150px;
-    height: 150px;
-    margin: 5px;
+    width: calc(4vw + 8vh);
+    height: calc(4vw + 8vh);
+    margin: calc(0.1vw + 0.5vh);
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
-    font-size: 150px;
+    font-size: calc(5vw + 9vh);
     cursor: pointer;
 }
 .column.clicked{
@@ -250,54 +249,57 @@ table, tr, td{
   50%  {transform: scale(1.1);}
 }
 .x-theme{
-    background-color: var(--new-pink);
+    background-color: var(--new-pink) !important;
     cursor: default;
 }
 .o-theme{
-    background-color: var(--new-blue);
+    background-color: var(--new-blue) !important;
     cursor: default;
 }
 
 .stats-box{
     display: flex;
     flex-direction: row;
-    width: 350px;
-    justify-content: space-between;
-    align-content: center;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 100px;
+    width: 100%;
+    justify-content: center;
+    margin: 0.4vh;
 }
 .stats{
-    padding: 6px;
+    background-color: var(--new-gray);
+    margin: calc(0.4vw + 1vh);
+    padding: calc(0.2vw + 0.6vh);
     font-family: 'Urbanist', sans-serif;
-    font-size:x-large;
+    font-size: calc(1vw + 1.5vh);
     font-weight: 500;
-    border-radius: 100px;
+    border-radius: calc(0.3vw + 0.5vh);
+    border: calc(0.1vw + 0.1vh) black solid;
 }
 .ai-button{
-    margin-top: 60px;
-    border-radius: 10px;
-    font-size: x-large;
+    margin-top: calc(0.4vw + 1vh);
+    border-radius: calc(0.3vw + 0.5vh);
+    font-size: calc(1vw + 1.5vh);
     color: black;
-    padding: 10px;
+    padding: calc(0.1vw + 1vh);
     cursor: pointer;
 }
 .darkButton {
     background-color: var(--new-purple);
     color:white;
-    border:2px var(--new-purple) solid;
+    border:calc(0.1vw + 0.1vh) var(--new-purple) solid;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 .lightButton {
     background-color: var(--new-white);
-    border:2px black solid;
+    border:calc(0.1vw + 0.1vh) black solid;
     transition: background-color 0.3s ease, box-shadow 0.1s ease, color 0.1s ease;
 }
 
-@media only screen and (max-width: 768px) {
-
+@media screen and (max-width: 650px) {
+    .ai-button{
+        margin-top: calc(0.4vw + 1vh);
+        border-radius: calc(0.5vw + 0.8vh);
+        font-size: calc(1.8vw + 2.4vh);
+        padding: calc(0.2vw + 1.5vh);
+    }
 }
-
 </style>

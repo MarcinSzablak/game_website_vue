@@ -26,11 +26,11 @@ export default{
     position: relative;
     left: 0;
     bottom: 0;
-    padding: 1vw;
+    padding: calc(0.3vw + 1.5vh);
     min-width: 100%;
     text-align: center;
 }
 .text{
-    font-size: 1.4vw;
+    font-size: calc(0.5vw + 2vh);
 }
 </style>

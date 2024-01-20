@@ -70,7 +70,6 @@ export default {
 </template>
 
 <style scoped>
-
 .topnav {
   overflow: hidden;
   display: flex;
@@ -88,14 +87,14 @@ export default {
 }
 
 .bars-icon{
-  width:calc(25px + 0.5vw);
-  height: calc(25px + 0.5vw);
-  margin: calc(15px + 0.5vw);
+  width: calc(1vw + 2.5vh);
+  height: calc(1vw + 2.5vh);
+  margin: calc(0.3vw + 1.5vh);
 }
 .dumb{
   display: flex;
   align-items: center;
-  margin-right: calc(16px + 0.5vw);
+  margin-right: 0.5vw;
 }
 .links{
   display: flex;
@@ -105,7 +104,7 @@ export default {
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: calc(1px + 0.5vw);
+    padding: calc(0.1vw + 0.5vh);
     background: none;
     border-radius: 100000px;
     cursor: pointer;
@@ -115,14 +114,14 @@ export default {
 }
 .themeIcon{
     background: none;
-    width: calc(15px + 0.5vw);
-    height: calc(15px + 0.5vw);
+    width: calc(0.5vw + 1.5vh);
+    height: calc(0.5vw + 1.5vh);
 }
 
 .navbar-title{
     font-weight: 600;
-    padding:calc(16px + 0.5vw);
-    font-size: calc(25px + 0.5vw);
+    padding: calc(0.3vw + 1.5vh);
+    font-size: calc(0.6vw + 2.7vh);
 }
 
 @media screen and (max-width: 650px) {
@@ -137,6 +136,7 @@ export default {
   }
   .links{
     display: none;
+    z-index: 1;
     position: absolute;
     width: 100%;
     padding: 16px;
@@ -148,8 +148,9 @@ export default {
     width: 100%;
     justify-content: space-between;
   }
-  .nav{
-
+  .themeIcon{
+    width: calc(0.5vw + 2vh);
+    height: calc(0.5vw + 2vh);
   }
 }
 

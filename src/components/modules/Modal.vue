@@ -35,19 +35,21 @@ export default{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    width: calc(10vw + 26vh);
+    height: calc(10vw + 26vh);
     background-color: rgba(43, 39, 48, 0.9);
+    border-radius: calc(0.3vw + 0.5vh);
 }
 .modal-text{
     color: var(--new-white);
     font-family: 'Urbanist', sans-serif;
-    font-size: 30px;
+    font-size: calc(0.6vw + 2.7vh);
     text-align: center;
 }
 .modal-button{
-    padding: 7px;
+    padding: calc(0.3vw + 0.8vh);
+    font-size: calc(0.3vw + 2vh);
     font-family: 'Urbanist', sans-serif;
-    border-radius: 2px;
+    border-radius: calc(0.3vw + 0.5vh);
 }
 </style>

@@ -21,7 +21,7 @@ export default{
 <style scoped>
 
 .text{
-    font-size: calc(15px + 0.5vw);;
+    font-size: calc(0.5vw + 1.5vh);
 }
 .list-element{
     list-style: none;
@@ -55,10 +55,10 @@ export default{
 
 @media screen and (max-width: 650px) {
     .list-element{
-        margin: calc(10px + 0.5vw);
+        margin: calc(0.25vw + 1vh);
     }
     .text{
-        font-size: calc(20px + 0.5vw);;
+        font-size: calc(1.5vw + 2.5vh);
     }
 }
 </style>

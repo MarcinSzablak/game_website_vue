@@ -38,24 +38,29 @@
 </template>
 
 <style>
+.coin-toss{
+    width: calc(8vw + 20vh);
+}
 .bar {
     display: flex;
-    height: 5px;
-    min-width: 200px;
+    height: calc(0.2vw + 0.4vh);
+    min-width: 100%;
 }
-
 .bar-text{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: small;
+    font-size: calc(0.2vw + 2vh);
 }
-
 .first {
     background-color: var(--new-pink);
 }
-
 .second {
     background-color: var(--new-blue);
+}
+@media screen and (max-width: 650px) {
+  .coin-toss{
+    width: 60%;
+  }
 }
 </style>

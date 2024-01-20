@@ -53,12 +53,11 @@ export default{
     align-items: center;
     background-color: var(--new-pink);
     border-radius: 10px;
-    margin: 10px;
+    margin: calc(0.5vw + 0.5vh);
     cursor: pointer;
     position: relative;
-    width: 100px;
-    height: 100px;
-    perspective: 1000px;
+    width: calc(4vw + 7vh);
+    height: calc(4vw + 7vh);
     transform-style: preserve-3d;
 }
 

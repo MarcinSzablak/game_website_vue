@@ -13,7 +13,7 @@ export default{
         <a
             class=" text"
             :class="theme ? 'list-link-dark': 'list-link-light'"
-            href="#"
+            :href="link.href"
         >{{ link.title }}</a>
     </li>
 </template>

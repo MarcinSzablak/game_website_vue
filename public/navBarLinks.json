@@ -1,11 +1,14 @@
 [
     {
-        "title": "Tic-Tac-Toe"
+        "title": "Tic-Tac-Toe",
+        "href": "tictactoe"
     },
     {
-        "title": "Coin Flip"
+        "title": "Coin Flip",
+        "href": "coinflip"
     },
     {
-        "title": "Memory"
+        "title": "Memory",
+        "href": "memory"
     }
 ]

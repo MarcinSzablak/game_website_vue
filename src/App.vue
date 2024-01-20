@@ -43,15 +43,9 @@ export default{
     :changeTheme="changeTheme"
   ></navbar>
 
-  <tic-tac-toe
+  <router-view
     :theme="theme"
-  ></tic-tac-toe>
-  <!-- <coin-flip
-    :theme="theme"
-  ></coin-flip> -->
-  <!-- <memory
-    :theme="theme"
-  ></memory> -->
+  ></router-view>
 
   <new-footer
     :theme="theme"
